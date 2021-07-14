@@ -24,7 +24,11 @@ const App = () => {
 
   const addItem = (text) => {
     if (!text) {
-      Alert.alert('Error', 'Please enter an item', { text: 'Ok' })
+      // Alert.alert('Error', 'Please enter an item', { text: 'Ok' }) - for ios
+      Alert.alert('Error', 'Please enter an item', [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+        { cancelable: true });
     } else {
       setItems(prevItems => {
         return [{ id: uuidv4(), text }, ...prevItems];
