@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View, StyleSheet } from 'react-native';
+import { FlatList, Alert, View, StyleSheet } from 'react-native';
 // import { uuid } from 'uuidv4'; not working
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,11 +22,21 @@ const App = () => {
     });
   }
 
+  const addItem = (text) => {
+    if (!text) {
+      Alert.alert('Error', 'Please enter an item', { text: 'Ok' })
+    } else {
+      setItems(prevItems => {
+        return [{ id: uuidv4(), text }, ...prevItems];
+      });
+    }
+  }
+
   return (
 
     <View style={styles.container}>
       <Header title="Shopping List" />
-      <AddItem />
+      <AddItem addItem={addItem} />
       <FlatList data={items}
         renderItem={({ item }) => <ListItem item={item} deleteItem={deleteItem} />}
       />
