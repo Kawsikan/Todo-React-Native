@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 import Header from './components/Header';
+import ListItem from './components/ListItem';
 // import { uuid } from 'uuidv4'; not working
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
@@ -28,10 +29,9 @@ const App = () => {
   return (
 
     <View>
-      <Header title="Shopping List"/>
+      <Header title="Shopping List" />
       <FlatList data={items}
-        renderItem={({ item }) =>
-          <Text>{item.text}</Text>}
+        renderItem={({ item }) => <ListItem item={item} />}
       />
     </View>
     // <View style={{ flex: 1, padding: 24 }}>
