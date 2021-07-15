@@ -9,12 +9,7 @@ import AddItem from './components/AddItem';
 
 const App = () => {
 
-  const [items, setItems] = useState([
-    { id: uuidv4(), text: 'Milk' },
-    { id: uuidv4(), text: 'Eggs' },
-    { id: uuidv4(), text: 'Bread' },
-    { id: uuidv4(), text: 'Juice' }
-  ]);
+  const [items, setItems] = useState([]);
 
   const deleteItem = (id) => {
     setItems(preItems => {
