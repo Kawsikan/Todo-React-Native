@@ -1,33 +1,39 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { View, StyleSheet, Button, Image } from 'react-native';
 
-const Splash = ({ item, deleteItem }) => {
+const Splash = ({ navigation }) => {
+
     return (
-        <TouchableOpacity style={styles.listItem}>
-            <View style={styles.listItemView}>
-                <Image source="https://images.app.goo.gl/H9WJLu3znhdC6YY39" />
-                <Icon name="remove" size={20} color="firebrick" onPress={() => deleteItem(item.id)} />
-            </View>
-        </TouchableOpacity>
+        <View style={styles.container} >
+            <Image
+                style={styles.tinyLogo}
+                source={{
+                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                }}
+            />
+            <Button
+                title="Go to Main"
+                onPress={() =>
+                    navigation.navigate('Main')
+                }
+            />
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    listItem: {
-        padding: 15,
-        backgroundColor: '#f8f8f8',
-        borderBottomWidth: 1,
-        borderBottomColor: '#eee'
+    container: {
+        paddingTop: 50,
     },
-    listItemView: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+    tinyLogo: {
+        width: 50,
+        height: 50,
     },
-    listItemText: {
+    logo: {
+        width: 66,
+        height: 58,
+    },
+});
 
-    }
-})
 
 export default Splash
