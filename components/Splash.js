@@ -6,9 +6,11 @@ const Splash = ({ navigation }) => {
     return (
         <View style={styles.container} >
             <Image
-                style={styles.tinyLogo}
                 source={{
-                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                    uri: 'https://live.staticflickr.com/1920/29913654857_f130040b7a_b.jpg',
+                }}
+                style={{
+                    width: 400, height: 600
                 }}
             />
             <Button
